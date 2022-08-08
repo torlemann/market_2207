@@ -6,10 +6,10 @@ RSpec.describe Vendor do
   let(:item2) {Item.new({name: 'Tomato', price: '$0.50'})}
   let(:vendor) {Vendor.new("Rocky Mountain Fresh")}
 
-  xit 'exists and has readable attributes' do
+  it 'exists and has readable attributes' do
     expect(vendor).to be_a Vendor
     expect(vendor.name).to eq "Rocky Mountain Fresh"
-    expect(vendor.inventory).to eq {}
+    expect(vendor.inventory).to eq({})
   end
 
   xit 'can check stock' do
