@@ -12,17 +12,17 @@ RSpec.describe Vendor do
     expect(vendor.inventory).to eq({})
   end
 
-  xit 'can check stock' do
+  it 'can check stock' do
     expect(vendor.check_stock(item1)).to eq 0
   end
 
-  # xit 'can add stock and return inventory' do
-  #   vendor.stock(item1, 30)
-  #   expect(vendor.inventory).to eq {item1 => 30}
-  #   expect(vendor.check_stock(item1)).to eq 30
-  #   vendor.stock(item1, 25)
-  #   expect(vendor.check_stock(item1)).to eq 55
-  #   vendor.stock(item2, 12)
-  #   expect(vendor.inventory).to eq {item1 => 30, items => 12}
-  # end
+  it 'can add stock and return inventory' do
+    vendor.stock(item1, 30)
+    expect(vendor.inventory).to eq {item1 => 30}
+    expect(vendor.check_stock(item1)).to eq 30
+    vendor.stock(item1, 25)
+    expect(vendor.check_stock(item1)).to eq 55
+    vendor.stock(item2, 12)
+    expect(vendor.inventory).to eq {item1 => 30, items => 12}
+  end
 end
