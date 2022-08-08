@@ -18,7 +18,7 @@ RSpec.describe Market do
     expect(market.vendors).to eq([])
   end
 
-  describe 'market vendor methods' do
+  describe 'Iterations 2 and 3' do
     before :each do
       vendor1.stock(item1, 35)
       vendor1.stock(item2, 7)
@@ -41,6 +41,29 @@ RSpec.describe Market do
     it 'can return a list of vendors that have that item in stock' do
       expect(market.vendors_that_sell(item1)).to eq([vendor1, vendor3])
       expect(market.vendors_that_sell(item4)).to eq([vendor2])
+    end
+
+    it 'can reports the quantities of all items sold at the market' do
+      vendor3.stock(item3, 10)
+      expected = {
+          item1 => {
+              quantity: 100,
+              vendors: [vendor1, vendor3]
+            },
+          item2 => {
+              quantity: 7,
+              vendors: [vendor1]
+            },
+          item4 => {
+              quantity: 50,
+              vendors: [vendor2]
+            },
+          item3 => {
+              quantity: 35,
+              vendors: [vendor2, vendor3]
+            },
+      }
+      expect(market.total_inventory).to eq(expected)
     end
   end
 
