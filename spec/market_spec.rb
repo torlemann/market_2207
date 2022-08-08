@@ -70,7 +70,7 @@ RSpec.describe Market do
       expect(market.overstocked_items).to eq([item1])
     end
 
-    xit 'can return a list of names of all items in stock, sorted alphabetically' do
+    it 'can return a list of names of all items in stock, sorted alphabetically' do
       expect(market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
     end
   end
