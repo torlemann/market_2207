@@ -43,7 +43,7 @@ RSpec.describe Market do
       expect(market.vendors_that_sell(item4)).to eq([vendor2])
     end
 
-    it 'can reports the quantities of all items sold at the market' do
+    xit 'can reports the quantities of all items sold at the market' do
       vendor3.stock(item3, 10)
       expected = {
           item1 => {
@@ -64,6 +64,14 @@ RSpec.describe Market do
             },
       }
       expect(market.total_inventory).to eq(expected)
+    end
+
+    xit 'can identify overstocked items' do
+      expect(market.overstocked_items).to eq([item1])
+    end
+
+    it 'can return a list of names of all items in stock, sorted alphabetically' do
+      expect(market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
     end
   end
 
